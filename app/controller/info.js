@@ -3,15 +3,11 @@
  */
 
 
-const Controller = require('egg').Controller;
+const ControllerFactory = require('../core/controller-factory');
+const BaseController = ControllerFactory('info');
 
-class InfoController extends Controller {
-    async addInfo() {
-        const ctx = this.ctx;
-        const params = ctx.request.body;
-        const order = await ctx.service.info.addInfo(params);
-        ctx.body = order;
-    }
+class InfoController extends BaseController {
+
 }
 
 module.exports = InfoController;
