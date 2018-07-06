@@ -6,7 +6,9 @@
 
 module.exports = app => {
   const { router, controller } = app;
+  router.get('/patrol/image/sign/head', controller.common.imageSignHead);
   router.post('/patrol/send_sms', controller.common.sendCode);
+
   /**
    * 信息管理
    */

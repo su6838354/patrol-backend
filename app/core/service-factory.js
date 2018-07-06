@@ -15,6 +15,8 @@ module.exports = (name) => {
 
         async list(params) {
             const { limit=10, offset = 0 } = params;
+            delete params.limit;
+            delete params.offset;
             const res = await this.app.mysql.select(name, {
                 where: { ...params },
                 orders: [['id','desc']],

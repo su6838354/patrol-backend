@@ -19,7 +19,7 @@ type 表示类型，people,govern,yuyue
 
 # 添加人员
 127.0.0.1:7001/patrol/staff/add
-type 表示人员类型，adjust, guard, help, police
+type 表示人员类型，mediation, guard, help, police
 {
 	"name": "sy",
 	"type": "test",

@@ -13,13 +13,15 @@ module.exports = (name) => {
         async add() {
             const ctx = this.ctx;
             const params = ctx.request.body;
-            ctx.body = await ctx.service[name].add(params);
+            const rep = await ctx.service[name].add(params);
+            ctx.body = {code: 0, data: rep.res, message: 'success'}
         }
 
         async list() {
             const ctx = this.ctx;
             const params = ctx.request.body;
-            ctx.body = await ctx.service[name].list(params);
+            const rep = await ctx.service[name].list(params);
+            ctx.body = {code: 0, data: rep.res, message: 'success'}
         }
 
     }
