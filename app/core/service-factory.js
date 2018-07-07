@@ -13,6 +13,11 @@ module.exports = (name) => {
             return { res }
         }
 
+        async update(params) {
+            const res = await this.app.mysql.update(name, params);
+            return { res }
+        }
+
         async list(params) {
             const { limit=10, offset = 0 } = params;
             delete params.limit;
@@ -25,6 +30,7 @@ module.exports = (name) => {
             });
             return { res }
         }
+
     }
     return BaseService
 };

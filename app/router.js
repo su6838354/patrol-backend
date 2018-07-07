@@ -14,10 +14,12 @@ module.exports = app => {
    */
   router.post('/patrol/info/add', controller.info.add);
   router.post('/patrol/info/list', controller.info.list);
+    router.post('/patrol/info/update', controller.info.update);
 
   /**
    * 人员管理
    */
   router.post('/patrol/staff/add', controller.staff.add);
   router.post('/patrol/staff/list', controller.staff.list);
+    router.post('/patrol/staff/update', controller.staff.update);
 };

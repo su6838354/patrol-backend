@@ -17,6 +17,13 @@ module.exports = (name) => {
             ctx.body = {code: 0, data: rep.res, message: 'success'}
         }
 
+        async update() {
+            const ctx = this.ctx;
+            const params = ctx.request.body;
+            const rep = await ctx.service[name].update(params);
+            ctx.body = {code: 0, data: rep.res, message: 'success'}
+        }
+
         async list() {
             const ctx = this.ctx;
             const params = ctx.request.body;
