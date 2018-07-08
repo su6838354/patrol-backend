@@ -28,7 +28,7 @@ module.exports = (name) => {
             const ctx = this.ctx;
             const params = ctx.request.body;
             const rep = await ctx.service[name].list(params);
-            ctx.body = {code: 0, data: rep.res, message: 'success'}
+            ctx.body = {code: 0, data: rep.res, total: rep.total, message: 'success'}
         }
 
     }

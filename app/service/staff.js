@@ -24,7 +24,13 @@ class StaffService extends BaseService {
             });
             item.info_count = p.length;
         }
-        return { res }
+
+        const allRes = await this.app.mysql.select('staff', {
+            where: { ...params }
+        });
+
+        const total = allRes.length
+        return { res, total }
     }
 
 }
