@@ -4,6 +4,7 @@
 127.0.0.1:7001/patrol/info/add
 
 type 表示类型，people,govern,yuyue
+status
 {
 	"name": "苏远",
 	"mobile": "13",
