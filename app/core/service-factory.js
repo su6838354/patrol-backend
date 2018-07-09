@@ -28,7 +28,12 @@ module.exports = (name) => {
                 limit,
                 offset,
             });
-            return { res }
+            const allRes = await this.app.mysql.select(name, {
+                where: { ...params }
+            });
+
+            const total = allRes.length;
+            return { res, total }
         }
 
     }

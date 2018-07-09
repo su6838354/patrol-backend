@@ -29,7 +29,7 @@ class StaffService extends BaseService {
             where: { ...params }
         });
 
-        const total = allRes.length
+        const total = allRes.length;
         return { res, total }
     }
 
