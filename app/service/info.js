@@ -18,7 +18,7 @@ class InfoService extends BaseService {
         });
         for (const item of res) {
             const polices = await this.app.mysql.select('staff', {
-                where: {id: res.police_id}
+                where: {id: item.police_id}
             });
             const police = polices[0]
             if (police) {
