@@ -20,7 +20,7 @@ class StaffService extends BaseService {
         });
         for (let item of res) {
             const p = await this.app.mysql.select('info', {
-                where: { police_id: item.id },
+                where: { police_id: item.id, status: 'accept' },
             });
             item.info_count = p.length;
         }

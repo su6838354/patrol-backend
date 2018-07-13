@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "egg": "^2.2.1",
     "egg-cors": "^2.0.0",
     "egg-mysql": "^3.0.0",
@@ -11,6 +12,7 @@
     "express": "^4.16.3",
     "moment": "^2.22.2",
     "querystring": "^0.2.0",
+    "request": "^2.87.0",
     "socket.io": "^2.1.1",
     "upyun": "^3.3.4"
   },
