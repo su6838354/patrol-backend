@@ -95,12 +95,32 @@ const card = {
 var request = require('request');
 
 
-request.post('http://121.40.98.157:89/gpsonline/GPSAPI', {form: {
-    version: 1,
-    method: 'loginSystem',
-    name: '上海杰闳',
-    pwd: '123456'
-}}, (err, rep) => {
-    console.log(rep.body)
-})
+// request.post('http://121.40.98.157:89/gpsonline/GPSAPI', {form: {
+//     version: 1,
+//     method: 'loginSystem',
+//     name: '上海杰闳',
+//     pwd: '123456'
+// }}, (err, rep) => {
+//     console.log(rep.body)
+// })
+
+var j = request.jar();
+var cookie = request.cookie('JSESSIONID=84D9A6794DF7DFDBAD27A29090CB9022');
+var url = 'http://121.40.98.157:89';
+j.setCookie(cookie, url);
+
+// request({url: url, jar: j}, function () {
+//     request('http://121.40.98.157:89/mygpsonline/json/vehicleAction_GetJsonVdata.action?vhcid=12150828&cret=&vehicle=9035&key=e617a19e0b2621bffb239dc0eb836bdf&begin_time=2018-07-15%2000:00:00&end_time=2018-07-15%2023:59:59&datatype=0&intermin=0&timeorder=0&ip=port&dtype=&0', (err, rep) => {
+//         console.log(err, rep.body);
+//     })
+// })
+
+
+const superagent = require('superagent');
+superagent.get('http://121.40.98.157:89/mygpsonline/json/vehicleAction_GetJsonVdata.action?vhcid=12150828&vehicle=9035&begin_time=2018-07-15%2000:00:00&end_time=2018-07-15%2023:59:59')
+    .set('Cookie', 'JSESSIONID=84D9A6794DF7DFDBAD27A29090CB9022')
+    .end(function(res, rep){
+        console.log(res, rep.body)
+    });
+
 
