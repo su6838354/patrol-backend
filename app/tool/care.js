@@ -117,10 +117,27 @@ j.setCookie(cookie, url);
 
 
 const superagent = require('superagent');
-superagent.get('http://121.40.98.157:89/mygpsonline/json/vehicleAction_GetJsonVdata.action?vhcid=12150828&vehicle=9035&begin_time=2018-07-15%2000:00:00&end_time=2018-07-15%2023:59:59')
-    .set('Cookie', 'JSESSIONID=84D9A6794DF7DFDBAD27A29090CB9022')
+// superagent.get('http://121.40.98.157:89/mygpsonline/json/vehicleAction_GetJsonVdata.action?vhcid=12150828&vehicle=9035&begin_time=2018-07-15%2000:00:00&end_time=2018-07-15%2023:59:59')
+//     .set('Cookie', 'JSESSIONID=84D9A6794DF7DFDBAD27A29090CB9022')
+//     .end(function(res, rep){
+//         console.log(res, rep.body)
+//     });
+
+
+const url1 = 'http://121.40.98.157:89/mygpsonline/json/loginAction_login.action?request_locale=zh_CN';
+superagent.post(url1)
+    .send({ userName: '上海杰闳',
+        userPass: '123456',
+        userType: '100'
+    })
+    .type('form')
     .end(function(res, rep){
-        console.log(res, rep.body)
+        console.log(res, rep)
+        console.log('--',rep.body)
+        const cookies = rep.headers['set-cookie']
+        const jsessionId = cookies[0].slice(11, 43)
+        console.log('--', cookies)
+        console.log('--', jsessionId)
     });
 
 
