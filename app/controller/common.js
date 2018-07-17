@@ -22,16 +22,14 @@ const getCookie = () => {
         })
         .type('form')
         .end((res, rep) => {
-            //console.log(res, rep)
-            //console.log('--',rep.body)
             const cookies = rep.headers['set-cookie']
             jsessionId = cookies[0].slice(11, 43)
             console.log('--', cookies)
             console.log('--', jsessionId)
         });
 }
-
-setInterval(() => getCookie(), 1000 * 10)
+getCookie()
+setInterval(() => getCookie(), 1000 * 60 * 10); // 30m
 
 class CommonController extends Controller {
     async sendCode() {
@@ -53,7 +51,6 @@ class CommonController extends Controller {
 
     async getPoints() {
         const { vhcid, vehicle, begin_time, end_time } = this.ctx.request.body;
-        const js = getJessionId();
         const p = new Promise((resolve, reject) => {
 
             // var jsessionId = '096C108B9409DB53BA5EE1CC178F55D6';
