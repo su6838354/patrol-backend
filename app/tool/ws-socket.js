@@ -34,6 +34,7 @@ io.on('connection', (socket) => {
     numUsers++;
 
     let username = socket.handshake.query.username;
+    socket.username = username;
     if (username) {
         console.log('connect', username)
         if (username === 'admin') {
